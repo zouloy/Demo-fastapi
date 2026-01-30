@@ -1,0 +1,13 @@
+services:
+  attendance-api: 
+    container_name: attendance_poc_app  
+    build: .
+    ports:
+      - "8800:8800"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    # Vi pekar om Uvicorn till rätt mapp här!
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8800
+    restart: always

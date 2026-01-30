@@ -1,0 +1,43 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtuell miljö (User request) ---
+venv/
+.venv/
+env/
+.env/
+
+# --- Miljövariabler & Hemligheter (User request) ---
+# Ignorera alla .env filer
+.env
+.env.dev
+.env.prod
+.env.local
+
+# Men spara gärna en exempelfil om du har en
+!.env.example
+
+# --- Docker & Data ---
+# Ignorera lokala docker-konfigurationer som inte ska delas
+.docker/
+docker-compose.override.yml
+
+# Ignorera mappen vi skapade för SQLite-databasen
+data/
+*.sqlite3
+*.db
+*.sqlite
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+
+# --- OS-skräp ---
+.DS_Store
+Thumbs.db
+
+__pycache__
+
+README-old.md
