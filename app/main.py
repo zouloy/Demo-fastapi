@@ -6,12 +6,14 @@ from .db import create_db_and_tables, create_fake_data, engine, SessionDep, engi
 import os
 from dotenv import load_dotenv
 
+# set upp of the backend
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     create_db_and_tables()
     create_fake_data(engine, 200)
     yield
 
+# Simple API set up for poc
 API_KEY_NAME = "X-API-KEY"
 api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=True)
 
@@ -33,6 +35,8 @@ def get_api_key(api_key: str = Security(api_key_header)):
 def hello_world():
     return {"message": "OK"}
 
+
+# example sql qureys for api
 @app.get("/report/per-person-time")
 def get_total_time(session: SessionDep, _auth=Depends(get_api_key)):
     query = text("""
